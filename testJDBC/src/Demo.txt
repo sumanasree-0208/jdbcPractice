@@ -1,0 +1,42 @@
+//		firstly we have to download all the drivers for this we use this below code
+Class.forName("com.mysql.jdbc.Driver");         // ------ Loaded Drivers
+
+Connection con = DriverManager.getConnection(url, username, password);   // ------ Connection Established
+
+for all sql queries these two are important to run the queries
+
+Statement stmt = con.createStatement();         // ------ Statement Created
+
+resultset interface used to store the ata
+ResultSet rs = stmt.executeQuery(query);        // ------ Executed SQL Query
+
+print the output via while loop by declaring all the data fields inside the table first and then printing it.
+----------------------------------------------------------------------------------------------------------------------
+InsertData:
+
+executeUpdate() -- used when we want to insert data
+executeQuery() -- when we want to retrieve the data
+
+while inserting data it wil shows the one or two rows effected when we added the data
+so we use this  int rowsaffected=stmt.executeUpdate();
+when these rows are greater then 0 then some record is added then print that the insertion is successful
+
+in this insert we are always adding single query is there any option to enter multiple queries at a time? 
+(Ans) it is possible using prepared statement 
+
+-------------------------------------------------------------------------------------------------------------------------------
+DeletingData:
+
+field=value(to delete)
+delete from employees where id=3;
+
+we will use executeUpdate() for all except for retrieving 
+
+yet it is not that good to delete in this way we have to use prepared statements for clear coding
+
+-----------------------------------------------------------------------------------------------------------------------
+UpdateData:
+
+Update employees
+set job_title=full_stack developer, salary=70000,etc 
+where id=2;
